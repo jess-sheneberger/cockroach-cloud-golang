@@ -1,4 +1,4 @@
-# Go API client for openapi
+# Go API client for ccloud
 
 This is an early access, experimental version of the Cloud API. The interface and output is subject to change, and there may be bugs.
 
@@ -27,7 +27,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import openapi "github.com/GIT_USER_ID/GIT_REPO_ID"
+import ccloud "github.com/jess-sheneberger/cockroach-cloud-golang"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -45,7 +45,7 @@ Default configuration comes with `Servers` field that contains server objects as
 For using other server than the one defined on index 0 set context value `sw.ContextServerIndex` of type `int`.
 
 ```golang
-ctx := context.WithValue(context.Background(), openapi.ContextServerIndex, 1)
+ctx := context.WithValue(context.Background(), ccloud.ContextServerIndex, 1)
 ```
 
 ### Templated Server URL
@@ -53,7 +53,7 @@ ctx := context.WithValue(context.Background(), openapi.ContextServerIndex, 1)
 Templated server URL is formatted using default variables from configuration or from context value `sw.ContextServerVariables` of type `map[string]string`.
 
 ```golang
-ctx := context.WithValue(context.Background(), openapi.ContextServerVariables, map[string]string{
+ctx := context.WithValue(context.Background(), ccloud.ContextServerVariables, map[string]string{
 	"basePath": "v2",
 })
 ```
@@ -67,10 +67,10 @@ An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
 ```
-ctx := context.WithValue(context.Background(), openapi.ContextOperationServerIndices, map[string]int{
+ctx := context.WithValue(context.Background(), ccloud.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
-ctx = context.WithValue(context.Background(), openapi.ContextOperationServerVariables, map[string]map[string]string{
+ctx = context.WithValue(context.Background(), ccloud.ContextOperationServerVariables, map[string]map[string]string{
 	"{classname}Service.{nickname}": {
 		"port": "8443",
 	},
@@ -83,25 +83,25 @@ All URIs are relative to *https://cockroachlabs.cloud*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CockroachCloudApi* | [**CockroachCloudAddAllowlistEntry**](docs/CockroachCloudApi.md#cockroachcloudaddallowlistentry) | **Post** /api/v1/clusters/{cluster_id}/networking/allowlist | Add a new CIDR address to the IP allowlist.
-*CockroachCloudApi* | [**CockroachCloudAddAllowlistEntry2**](docs/CockroachCloudApi.md#cockroachcloudaddallowlistentry2) | **Put** /api/v1/clusters/{cluster_id}/networking/allowlist/{entry.cidr_ip}/{entry.cidr_mask} | Add a new CIDR address to the IP allowlist.
-*CockroachCloudApi* | [**CockroachCloudCreateCluster**](docs/CockroachCloudApi.md#cockroachcloudcreatecluster) | **Post** /api/v1/clusters | Create and initialize a new cluster.
-*CockroachCloudApi* | [**CockroachCloudCreateSQLUser**](docs/CockroachCloudApi.md#cockroachcloudcreatesqluser) | **Post** /api/v1/clusters/{cluster_id}/sql-users | Create a new SQL user.
-*CockroachCloudApi* | [**CockroachCloudDeleteAllowlistEntry**](docs/CockroachCloudApi.md#cockroachclouddeleteallowlistentry) | **Delete** /api/v1/clusters/{cluster_id}/networking/allowlist/{cidr_ip}/{cidr_mask} | Delete an IP allowlist entry.
-*CockroachCloudApi* | [**CockroachCloudDeleteCluster**](docs/CockroachCloudApi.md#cockroachclouddeletecluster) | **Delete** /api/v1/clusters/{cluster_id} | Delete a cluster and all of its data.
-*CockroachCloudApi* | [**CockroachCloudDeleteSQLUser**](docs/CockroachCloudApi.md#cockroachclouddeletesqluser) | **Delete** /api/v1/clusters/{cluster_id}/sql-users/{name} | Delete a SQL user.
-*CockroachCloudApi* | [**CockroachCloudEnableCMEK**](docs/CockroachCloudApi.md#cockroachcloudenablecmek) | **Post** /api/v1/clusters/{cluster_id}/cmek | Enable CMEK for a cluster.
-*CockroachCloudApi* | [**CockroachCloudGetCMEKClusterInfo**](docs/CockroachCloudApi.md#cockroachcloudgetcmekclusterinfo) | **Get** /api/v1/clusters/{cluster_id}/cmek | Get CMEK-related information for a cluster.
-*CockroachCloudApi* | [**CockroachCloudGetCluster**](docs/CockroachCloudApi.md#cockroachcloudgetcluster) | **Get** /api/v1/clusters/{cluster_id} | Get extended information about a cluster.
-*CockroachCloudApi* | [**CockroachCloudListAllowlistEntries**](docs/CockroachCloudApi.md#cockroachcloudlistallowlistentries) | **Get** /api/v1/clusters/{cluster_id}/networking/allowlist | Get the IP allowlist and propagation status for a cluster.
-*CockroachCloudApi* | [**CockroachCloudListAvailableRegions**](docs/CockroachCloudApi.md#cockroachcloudlistavailableregions) | **Get** /api/v1/clusters/available-regions | List the regions available for new clusters and nodes.
-*CockroachCloudApi* | [**CockroachCloudListClusterNodes**](docs/CockroachCloudApi.md#cockroachcloudlistclusternodes) | **Get** /api/v1/clusters/{cluster_id}/nodes | List nodes for a cluster.
-*CockroachCloudApi* | [**CockroachCloudListClusters**](docs/CockroachCloudApi.md#cockroachcloudlistclusters) | **Get** /api/v1/clusters | List clusters owned by an organization.
-*CockroachCloudApi* | [**CockroachCloudListSQLUsers**](docs/CockroachCloudApi.md#cockroachcloudlistsqlusers) | **Get** /api/v1/clusters/{cluster_id}/sql-users | List SQL users for a cluster.
-*CockroachCloudApi* | [**CockroachCloudUpdateAllowlistEntry**](docs/CockroachCloudApi.md#cockroachcloudupdateallowlistentry) | **Patch** /api/v1/clusters/{cluster_id}/networking/allowlist/{entry.cidr_ip}/{entry.cidr_mask} | Update an IP allowlist entry.
-*CockroachCloudApi* | [**CockroachCloudUpdateCMEKStatus**](docs/CockroachCloudApi.md#cockroachcloudupdatecmekstatus) | **Patch** /api/v1/clusters/{cluster_id}/cmek | Update the CMEK-related status for a cluster.
-*CockroachCloudApi* | [**CockroachCloudUpdateCluster**](docs/CockroachCloudApi.md#cockroachcloudupdatecluster) | **Patch** /api/v1/clusters/{cluster_id} | Scale or edit a cluster.
-*CockroachCloudApi* | [**CockroachCloudUpdateSQLUserPassword**](docs/CockroachCloudApi.md#cockroachcloudupdatesqluserpassword) | **Put** /api/v1/clusters/{cluster_id}/sql-users/{name}/password | Update a SQL user&#39;s password.
+*CockroachCloudApi* | [**AddAllowlistEntry**](docs/CockroachCloudApi.md#addallowlistentry) | **Post** /api/v1/clusters/{cluster_id}/networking/allowlist | Add a new CIDR address to the IP allowlist.
+*CockroachCloudApi* | [**AddAllowlistEntry2**](docs/CockroachCloudApi.md#addallowlistentry2) | **Put** /api/v1/clusters/{cluster_id}/networking/allowlist/{entry.cidr_ip}/{entry.cidr_mask} | Add a new CIDR address to the IP allowlist.
+*CockroachCloudApi* | [**CreateCluster**](docs/CockroachCloudApi.md#createcluster) | **Post** /api/v1/clusters | Create and initialize a new cluster.
+*CockroachCloudApi* | [**CreateSQLUser**](docs/CockroachCloudApi.md#createsqluser) | **Post** /api/v1/clusters/{cluster_id}/sql-users | Create a new SQL user.
+*CockroachCloudApi* | [**DeleteAllowlistEntry**](docs/CockroachCloudApi.md#deleteallowlistentry) | **Delete** /api/v1/clusters/{cluster_id}/networking/allowlist/{cidr_ip}/{cidr_mask} | Delete an IP allowlist entry.
+*CockroachCloudApi* | [**DeleteCluster**](docs/CockroachCloudApi.md#deletecluster) | **Delete** /api/v1/clusters/{cluster_id} | Delete a cluster and all of its data.
+*CockroachCloudApi* | [**DeleteSQLUser**](docs/CockroachCloudApi.md#deletesqluser) | **Delete** /api/v1/clusters/{cluster_id}/sql-users/{name} | Delete a SQL user.
+*CockroachCloudApi* | [**EnableCMEK**](docs/CockroachCloudApi.md#enablecmek) | **Post** /api/v1/clusters/{cluster_id}/cmek | Enable CMEK for a cluster.
+*CockroachCloudApi* | [**GetCMEKClusterInfo**](docs/CockroachCloudApi.md#getcmekclusterinfo) | **Get** /api/v1/clusters/{cluster_id}/cmek | Get CMEK-related information for a cluster.
+*CockroachCloudApi* | [**GetCluster**](docs/CockroachCloudApi.md#getcluster) | **Get** /api/v1/clusters/{cluster_id} | Get extended information about a cluster.
+*CockroachCloudApi* | [**ListAllowlistEntries**](docs/CockroachCloudApi.md#listallowlistentries) | **Get** /api/v1/clusters/{cluster_id}/networking/allowlist | Get the IP allowlist and propagation status for a cluster.
+*CockroachCloudApi* | [**ListAvailableRegions**](docs/CockroachCloudApi.md#listavailableregions) | **Get** /api/v1/clusters/available-regions | List the regions available for new clusters and nodes.
+*CockroachCloudApi* | [**ListClusterNodes**](docs/CockroachCloudApi.md#listclusternodes) | **Get** /api/v1/clusters/{cluster_id}/nodes | List nodes for a cluster.
+*CockroachCloudApi* | [**ListClusters**](docs/CockroachCloudApi.md#listclusters) | **Get** /api/v1/clusters | List clusters owned by an organization.
+*CockroachCloudApi* | [**ListSQLUsers**](docs/CockroachCloudApi.md#listsqlusers) | **Get** /api/v1/clusters/{cluster_id}/sql-users | List SQL users for a cluster.
+*CockroachCloudApi* | [**UpdateAllowlistEntry**](docs/CockroachCloudApi.md#updateallowlistentry) | **Patch** /api/v1/clusters/{cluster_id}/networking/allowlist/{entry.cidr_ip}/{entry.cidr_mask} | Update an IP allowlist entry.
+*CockroachCloudApi* | [**UpdateCMEKStatus**](docs/CockroachCloudApi.md#updatecmekstatus) | **Patch** /api/v1/clusters/{cluster_id}/cmek | Update the CMEK-related status for a cluster.
+*CockroachCloudApi* | [**UpdateCluster**](docs/CockroachCloudApi.md#updatecluster) | **Patch** /api/v1/clusters/{cluster_id} | Scale or edit a cluster.
+*CockroachCloudApi* | [**UpdateSQLUserPassword**](docs/CockroachCloudApi.md#updatesqluserpassword) | **Put** /api/v1/clusters/{cluster_id}/sql-users/{name}/password | Update a SQL user&#39;s password.
 
 
 ## Documentation For Models

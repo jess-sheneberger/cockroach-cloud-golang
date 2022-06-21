@@ -1,0 +1,175 @@
+diff --git a/api_cockroach_cloud.go b/api_cockroach_cloud.go
+index bb298d5..0910755 100644
+--- a/api_cockroach_cloud.go
++++ b/api_cockroach_cloud.go
+@@ -162,7 +162,7 @@ func (a *CockroachCloudApiService) AddAllowlistEntryExecute(r ApiAddAllowlistEnt
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -339,7 +339,7 @@ func (a *CockroachCloudApiService) AddAllowlistEntry2Execute(r ApiAddAllowlistEn
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -504,7 +504,7 @@ func (a *CockroachCloudApiService) CreateClusterExecute(r ApiCreateClusterReques
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -673,7 +673,7 @@ func (a *CockroachCloudApiService) CreateSQLUserExecute(r ApiCreateSQLUserReques
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -839,7 +839,7 @@ func (a *CockroachCloudApiService) DeleteAllowlistEntryExecute(r ApiDeleteAllowl
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -997,7 +997,7 @@ func (a *CockroachCloudApiService) DeleteClusterExecute(r ApiDeleteClusterReques
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -1159,7 +1159,7 @@ func (a *CockroachCloudApiService) DeleteSQLUserExecute(r ApiDeleteSQLUserReques
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -1328,7 +1328,7 @@ func (a *CockroachCloudApiService) EnableCMEKExecute(r ApiEnableCMEKRequest) (*C
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -1486,7 +1486,7 @@ func (a *CockroachCloudApiService) GetCMEKClusterInfoExecute(r ApiGetCMEKCluster
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -1644,7 +1644,7 @@ func (a *CockroachCloudApiService) GetClusterExecute(r ApiGetClusterRequest) (*C
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -1850,7 +1850,7 @@ func (a *CockroachCloudApiService) ListAllowlistEntriesExecute(r ApiListAllowlis
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -2072,7 +2072,7 @@ func (a *CockroachCloudApiService) ListAvailableRegionsExecute(r ApiListAvailabl
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -2288,7 +2288,7 @@ func (a *CockroachCloudApiService) ListClusterNodesExecute(r ApiListClusterNodes
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -2500,7 +2500,7 @@ func (a *CockroachCloudApiService) ListClustersExecute(r ApiListClustersRequest)
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -2706,7 +2706,7 @@ func (a *CockroachCloudApiService) ListSQLUsersExecute(r ApiListSQLUsersRequest)
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -2892,7 +2892,7 @@ func (a *CockroachCloudApiService) UpdateAllowlistEntryExecute(r ApiUpdateAllowl
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -3061,7 +3061,7 @@ func (a *CockroachCloudApiService) UpdateCMEKStatusExecute(r ApiUpdateCMEKStatus
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -3239,7 +3239,7 @@ func (a *CockroachCloudApiService) UpdateClusterExecute(r ApiUpdateClusterReques
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
+@@ -3412,7 +3412,7 @@ func (a *CockroachCloudApiService) UpdateSQLUserPasswordExecute(r ApiUpdateSQLUs
+ 			newErr.model = v
+ 			return localVarReturnValue, localVarHTTPResponse, newErr
+ 		}
+-		if localVarHTTPResponse.StatusCode >= 500
++		if localVarHTTPResponse.StatusCode >= 500 {
+ 			var v interface{}
+ 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+ 			if err != nil {
