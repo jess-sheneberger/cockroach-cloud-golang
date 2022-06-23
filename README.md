@@ -1,5 +1,12 @@
 # Go API client for ccloud
 
+To regenerate run:
+```
+gen.sh
+```
+
+Requires openapi-generator to be installed.  I used 6.0.0 on a mac. For some reason I didn't dig into too deeply, the generated code is broken (missing open curly brace on some if statements) so I just patched the results. When openapi-generator or the go plugin changes sufficiently it will likely break the patch, which will need to be removed or adjusted. 
+
 This is an early access, experimental version of the Cloud API. The interface and output is subject to change, and there may be bugs.
 
 # Authentication
