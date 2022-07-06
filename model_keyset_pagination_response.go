@@ -13,7 +13,6 @@ package ccloud
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // KeysetPaginationResponse struct for KeysetPaginationResponse
@@ -21,7 +20,7 @@ type KeysetPaginationResponse struct {
 	Next  *string    `json:"next,omitempty"`
 	Last  *string    `json:"last,omitempty"`
 	Limit *int32     `json:"limit,omitempty"`
-	Time  *time.Time `json:"time,omitempty"`
+	Time  *string    `json:"time,omitempty"`
 	Order *SortOrder `json:"order,omitempty"`
 }
 
@@ -143,9 +142,9 @@ func (o *KeysetPaginationResponse) SetLimit(v int32) {
 }
 
 // GetTime returns the Time field value if set, zero value otherwise.
-func (o *KeysetPaginationResponse) GetTime() time.Time {
+func (o *KeysetPaginationResponse) GetTime() string {
 	if o == nil || o.Time == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.Time
@@ -153,7 +152,7 @@ func (o *KeysetPaginationResponse) GetTime() time.Time {
 
 // GetTimeOk returns a tuple with the Time field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *KeysetPaginationResponse) GetTimeOk() (*time.Time, bool) {
+func (o *KeysetPaginationResponse) GetTimeOk() (*string, bool) {
 	if o == nil || o.Time == nil {
 		return nil, false
 	}
@@ -169,8 +168,8 @@ func (o *KeysetPaginationResponse) HasTime() bool {
 	return false
 }
 
-// SetTime gets a reference to the given time.Time and assigns it to the Time field.
-func (o *KeysetPaginationResponse) SetTime(v time.Time) {
+// SetTime gets a reference to the given string and assigns it to the Time field.
+func (o *KeysetPaginationResponse) SetTime(v string) {
 	o.Time = &v
 }
 

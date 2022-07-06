@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Next** | Pointer to **string** |  | [optional] 
 **Last** | Pointer to **string** |  | [optional] 
 **Limit** | Pointer to **int32** |  | [optional] 
-**Time** | Pointer to **time.Time** |  | [optional] 
+**Time** | Pointer to **string** |  | [optional] 
 **Order** | Pointer to [**SortOrder**](SortOrder.md) |  | [optional] [default to ASC]
 
 ## Methods
@@ -106,20 +106,20 @@ HasLimit returns a boolean if a field has been set.
 
 ### GetTime
 
-`func (o *KeysetPaginationResponse) GetTime() time.Time`
+`func (o *KeysetPaginationResponse) GetTime() string`
 
 GetTime returns the Time field if non-nil, zero value otherwise.
 
 ### GetTimeOk
 
-`func (o *KeysetPaginationResponse) GetTimeOk() (*time.Time, bool)`
+`func (o *KeysetPaginationResponse) GetTimeOk() (*string, bool)`
 
 GetTimeOk returns a tuple with the Time field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTime
 
-`func (o *KeysetPaginationResponse) SetTime(v time.Time)`
+`func (o *KeysetPaginationResponse) SetTime(v string)`
 
 SetTime sets Time field to given value.
 

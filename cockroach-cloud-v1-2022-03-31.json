@@ -2753,8 +2753,7 @@
             "format": "int32"
           },
           "time": {
-            "type": "string",
-            "format": "date-time"
+            "type": "string"
           },
           "order": {
             "$ref": "#/components/schemas/SortOrder"
