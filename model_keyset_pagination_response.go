@@ -17,11 +17,11 @@ import (
 
 // KeysetPaginationResponse struct for KeysetPaginationResponse
 type KeysetPaginationResponse struct {
-	Next  *string    `json:"next,omitempty"`
-	Last  *string    `json:"last,omitempty"`
-	Limit *int32     `json:"limit,omitempty"`
-	Time  *string    `json:"time,omitempty"`
-	Order *SortOrder `json:"order,omitempty"`
+	Next  *string `json:"next,omitempty"`
+	Last  *string `json:"last,omitempty"`
+	Limit *int32  `json:"limit,omitempty"`
+	Time  *string `json:"time,omitempty"`
+	Order *string `json:"order,omitempty"`
 }
 
 // NewKeysetPaginationResponse instantiates a new KeysetPaginationResponse object
@@ -30,8 +30,6 @@ type KeysetPaginationResponse struct {
 // will change when the set of required properties is changed
 func NewKeysetPaginationResponse() *KeysetPaginationResponse {
 	this := KeysetPaginationResponse{}
-	var order SortOrder = ASC
-	this.Order = &order
 	return &this
 }
 
@@ -40,8 +38,6 @@ func NewKeysetPaginationResponse() *KeysetPaginationResponse {
 // but it doesn't guarantee that properties required by API are set
 func NewKeysetPaginationResponseWithDefaults() *KeysetPaginationResponse {
 	this := KeysetPaginationResponse{}
-	var order SortOrder = ASC
-	this.Order = &order
 	return &this
 }
 
@@ -174,9 +170,9 @@ func (o *KeysetPaginationResponse) SetTime(v string) {
 }
 
 // GetOrder returns the Order field value if set, zero value otherwise.
-func (o *KeysetPaginationResponse) GetOrder() SortOrder {
+func (o *KeysetPaginationResponse) GetOrder() string {
 	if o == nil || o.Order == nil {
-		var ret SortOrder
+		var ret string
 		return ret
 	}
 	return *o.Order
@@ -184,7 +180,7 @@ func (o *KeysetPaginationResponse) GetOrder() SortOrder {
 
 // GetOrderOk returns a tuple with the Order field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *KeysetPaginationResponse) GetOrderOk() (*SortOrder, bool) {
+func (o *KeysetPaginationResponse) GetOrderOk() (*string, bool) {
 	if o == nil || o.Order == nil {
 		return nil, false
 	}
@@ -200,8 +196,8 @@ func (o *KeysetPaginationResponse) HasOrder() bool {
 	return false
 }
 
-// SetOrder gets a reference to the given SortOrder and assigns it to the Order field.
-func (o *KeysetPaginationResponse) SetOrder(v SortOrder) {
+// SetOrder gets a reference to the given string and assigns it to the Order field.
+func (o *KeysetPaginationResponse) SetOrder(v string) {
 	o.Order = &v
 }
 

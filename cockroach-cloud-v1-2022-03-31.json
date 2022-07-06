@@ -2756,7 +2756,7 @@
             "type": "string"
           },
           "order": {
-            "$ref": "#/components/schemas/SortOrder"
+            "type": "string"
           }
         }
       },

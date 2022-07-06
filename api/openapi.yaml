@@ -2030,7 +2030,7 @@ components:
         last: last
         limit: 0
         time: time
-        order: null
+        order: order
       properties:
         next:
           type: string
@@ -2042,7 +2042,7 @@ components:
         time:
           type: string
         order:
-          $ref: '#/components/schemas/SortOrder'
+          type: string
       type: object
     ListAllowlistEntriesResponse:
       example:
@@ -2062,7 +2062,7 @@ components:
           last: last
           limit: 0
           time: time
-          order: null
+          order: order
         propagating: true
       properties:
         allowlist:
@@ -2096,7 +2096,7 @@ components:
           last: last
           limit: 0
           time: time
-          order: null
+          order: order
       properties:
         regions:
           items:
@@ -2121,7 +2121,7 @@ components:
           last: last
           limit: 0
           time: time
-          order: null
+          order: order
       properties:
         nodes:
           items:
@@ -2139,7 +2139,7 @@ components:
           last: last
           limit: 0
           time: time
-          order: null
+          order: order
         clusters:
         - id: 35c4abb2-bb66-46d7-afed-25ebef5ed2aa
           name: example-cluster
@@ -2200,7 +2200,7 @@ components:
           last: last
           limit: 0
           time: time
-          order: null
+          order: order
         users:
         - name: name
         - name: name

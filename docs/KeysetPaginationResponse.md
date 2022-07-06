@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Last** | Pointer to **string** |  | [optional] 
 **Limit** | Pointer to **int32** |  | [optional] 
 **Time** | Pointer to **string** |  | [optional] 
-**Order** | Pointer to [**SortOrder**](SortOrder.md) |  | [optional] [default to ASC]
+**Order** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -131,20 +131,20 @@ HasTime returns a boolean if a field has been set.
 
 ### GetOrder
 
-`func (o *KeysetPaginationResponse) GetOrder() SortOrder`
+`func (o *KeysetPaginationResponse) GetOrder() string`
 
 GetOrder returns the Order field if non-nil, zero value otherwise.
 
 ### GetOrderOk
 
-`func (o *KeysetPaginationResponse) GetOrderOk() (*SortOrder, bool)`
+`func (o *KeysetPaginationResponse) GetOrderOk() (*string, bool)`
 
 GetOrderOk returns a tuple with the Order field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrder
 
-`func (o *KeysetPaginationResponse) SetOrder(v SortOrder)`
+`func (o *KeysetPaginationResponse) SetOrder(v string)`
 
 SetOrder sets Order field to given value.
 
